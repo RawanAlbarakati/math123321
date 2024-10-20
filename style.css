@@ -1,0 +1,95 @@
+body {
+    font-family: 'Amiri', serif;
+    margin: 0;
+    padding: 20px;
+    direction: rtl;
+    text-align: center;
+    background-image: url('/WhatsApp Image 2024-10-20 at 12.51.59.jpeg'); /* Background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.worksheet {
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 28px;
+    color: #245F5F;
+    border: 2px solid #0000ff;
+    padding: 10px;
+    background-color: #e0f7fa;
+    margin-bottom: 20px;
+}
+
+.student-info input {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: 90%;
+    font-size: 18px;
+    text-align: center;
+}
+
+.questions {
+    background-color: #f0f8ff; /* Lighter blue inside */
+    border: 3px solid #1e90ff; /* Bright blue border */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.questions h2 {
+    font-size: 24px;
+    color: #d32f2f;
+    border-bottom: 2px solid #f44336;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: right;
+    font-size: 22px;
+}
+
+select {
+    font-size: 18px;
+    padding: 10px;
+    border: 2px solid #ffeb3b;
+    background-color: #ffff8d;
+    width: 150px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.submit-btn {
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #218838;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 16px;
+}

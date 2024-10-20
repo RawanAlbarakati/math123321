@@ -4,35 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Division Worksheet</title>
-    <link rel="stylesheet" href="style.css"> 
-    <script>
-        function calculateScore() {
-            const correctAnswers = {
-                q1: '١٠٠',
-                q2: '٤٠',
-                q3: '٥',
-                q4: '٨٠',
-                q5: '٧٠'
-            };
-            let score = 0;
-            document.querySelectorAll('.question select').forEach(function(select) {
-                const questionName = select.getAttribute('name');
-                if (select.value === correctAnswers[questionName]) {
-                    score++;
-                }
-            });
-
-            // Display different messages based on the score
-            const feedbackDiv = document.getElementById('feedback');
-            if (score === 5) {
-                feedbackDiv.innerHTML = "<h2>تهانينا! لقد أجبتي على جميع الأسئلة بشكل صحيح!</h2>";
-            } else if (score >= 3) {
-                feedbackDiv.innerHTML = "<h2> عمل جيد! لقد حصلتي على " + score + " من 5 </h2>";
-            } else {
-                feedbackDiv.innerHTML = "<h2> لقد حصلتي على " + score + " من 5 حاولي مرة أخرى.</h2>";
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the external CSS file -->
 </head>
 <body>
 
@@ -41,9 +13,9 @@
     
     <div class="student-info">
         <label>اسم الطالبة:</label>
-        <input type="text" placeholder="أدخلي اسمك  هنا">
+        <input type="text" placeholder="أدخل اسم الطالبة هنا">
         <label>الصف:</label>
-        <input type="text" placeholder="أدخلي فصلك هنا">
+        <input type="text" placeholder="أدخل الصف هنا">
     </div>
 
     <div class="questions">
@@ -82,7 +54,7 @@
         <div class="question">
             <span>٥٦٠٠ ÷ ٧٠</span>
             <select name="q4">
-                <option value="" disabled selected></option> 
+                <option value="" disabled selected></option> <!-- First empty option -->
                 <option value="٨٠">٨٠</option>
                 <option value="٨٥">٨٥</option>
                 <option value="٩٠">٩٠</option>
@@ -92,7 +64,7 @@
         <div class="question">
             <span>٢١٠٠ ÷ ٣٠</span>
             <select name="q5">
-                <option value="" disabled selected></option> 
+                <option value="" disabled selected></option> <!-- First empty option -->
                 <option value="٧٠">٧٠</option>
                 <option value="٧١">٧١</option>
                 <option value="٧٢">٧٢</option>
@@ -100,15 +72,47 @@
         </div>
     </div>
 
+    <!-- Submit Button -->
     <button class="submit-btn" type="button" onclick="calculateScore()">إرسال الإجابات</button>
 
-   
+    <!-- Feedback Message -->
     <div id="feedback" style="margin-top: 20px;"></div>
 
     <div class="footer">
         <p>معلمة المادة: نجوى البركاتي</p>
     </div>
 </div>
+
+<script>
+    function calculateScore() {
+        const correctAnswers = {
+            q1: '١٠٠',
+            q2: '٤٠',
+            q3: '٥',
+            q4: '٨٠',
+            q5: '٧٠'
+        };
+        let score = 0;
+        document.querySelectorAll('.question select').forEach(function(select) {
+            const questionName = select.getAttribute('name');
+            if (select.value === correctAnswers[questionName]) {
+                score++;
+            }
+        });
+
+        const feedbackDiv = document.getElementById('feedback');
+        const clapSound = new Audio('clap.mp3'); // Load the clapping sound
+
+        if (score === 5) {
+            feedbackDiv.innerHTML = "<h2>تهانينا! لقد أجبتي على جميع الأسئلة بشكل صحيح!</h2>";
+            clapSound.play(); // Play clapping sound if all answers are correct
+        } else if (score >= 3) {
+            feedbackDiv.innerHTML = "<h2> عمل جيد! لقد حصلتي على " + score + " من 5 </h2>";
+        } else {
+            feedbackDiv.innerHTML = "<h2> لقد حصلتي على " + score + " من 5 حاولي مرة أخرى.</h2>";
+        }
+    }
+</script>
 
 </body>
 </html>

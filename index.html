@@ -4,7 +4,142 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Division Worksheet</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to the external CSS file -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Amiri', serif;
+            margin: 0;
+            padding: 20px;
+            direction: rtl;
+            text-align: center;
+            background-image: url('/WhatsApp Image 2024-10-20 at 12.51.59.jpeg'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .worksheet {
+            background-color: #fff;
+            border: 2px solid #000;
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #245F5F;
+            border: 2px solid #0000ff;
+            padding: 10px;
+            background-color: #e0f7fa;
+            margin-bottom: 20px;
+        }
+
+        .student-info input {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            width: 90%;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .questions {
+            background-color: #f0f8ff; /* Lighter blue inside */
+            border: 3px solid #1e90ff; /* Bright blue border */
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .questions h2 {
+            font-size: 24px;
+            color: #d32f2f;
+            border-bottom: 2px solid #f44336;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 20px;
+            text-align: right;
+            font-size: 22px;
+        }
+
+        select {
+            font-size: 18px;
+            padding: 10px;
+            border: 2px solid #ffeb3b;
+            background-color: #ffff8d;
+            width: 150px;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .submit-btn {
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #ccc;
+            margin: 15px 0;
+        }
+    </style>
+    <script>
+        function calculateScore() {
+            const correctAnswers = {
+                q1: '٩',
+                q2: '٢٥',
+                q3: '٣٥',
+                q4: '٣٢',
+                q5: '٥',
+                q6: '١٠',
+                q7: '٨'
+            };
+            let score = 0;
+            document.querySelectorAll('.question select').forEach(function(select) {
+                const questionName = select.getAttribute('name');
+                if (select.value === correctAnswers[questionName]) {
+                    score++;
+                }
+            });
+
+            const feedbackDiv = document.getElementById('feedback');
+            const audio = document.getElementById('success-audio');
+            
+            if (score === 7) {
+                feedbackDiv.innerHTML = "<h2>تهانينا! لقد أجبتي على جميع الأسئلة بشكل صحيح!</h2>";
+                audio.play(); // Play the congratulatory audio
+            } else if (score >= 4) {
+                feedbackDiv.innerHTML = "<h2> عمل جيد! لقد حصلتي على " + score + " من 7 </h2>";
+            } else {
+                feedbackDiv.innerHTML = "<h2> لقد حصلتي على " + score + " من 7 حاولي مرة أخرى.</h2>";
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -20,62 +155,88 @@
 
     <div class="questions">
         <h2>أوجدي ناتج كل مما يأتي ذهنيا ثم اختاري الإجابة الصحيحة:</h2>
+        <h3>اذا كانت س = ٢ ، ص = ٩ </h3>
         
         <div class="question">
-            <span>٥٠٠ ÷ ٥</span>
+            <span>١)  س + ٧ = </span>
             <select name="q1">
-                <option value="" disabled selected></option> <!-- First empty option -->
-                <option value="١٠٠">١٠٠</option>
-                <option value="١٥٠">١٥٠</option>
-                <option value="٢٠٠">٢٠٠</option>
+                <option value="" disabled selected></option>
+                <option value="٧">٧</option>
+                <option value="٨">٨</option>
+                <option value="٩">٩</option>
             </select>
         </div>
+        <hr>
 
         <div class="question">
-            <span>٣٢٠ ÷ ٨</span>
+            <span>٢)  ٢٣ + س = </span>
             <select name="q2">
-                <option value="" disabled selected></option> <!-- First empty option -->
-                <option value="٣٥">٣٥</option>
-                <option value="٤٠">٤٠</option>
-                <option value="٥٠">٥٠</option>
+                <option value="" disabled selected></option>
+                <option value="٢٠">٢٠</option>
+                <option value="٢٥">٢٥</option>
+                <option value="٣٠">٣٠</option>
             </select>
         </div>
+        <hr>
 
         <div class="question">
-            <span>١٥٠ ÷ ٣٠</span>
+            <span>٣)  ص + ٢٦ = </span>
             <select name="q3">
-                <option value="" disabled selected></option> <!-- First empty option -->
-                <option value="٣">٣</option>
+                <option value="" disabled selected></option>
+                <option value="١٥">١٥</option>
+                <option value="٢٣">٢٣</option>
+                <option value="٣٥">٣٥</option>
+            </select>
+        </div>
+        <hr>
+
+        <div class="question">
+            <span>٤)  ٣٤ - س =  </span>
+            <select name="q4">
+                <option value="" disabled selected></option>
+                <option value="٣٢">٣٢</option>
+                <option value="٤٠">٤٠</option>
+                <option value="٥١">٥١</option>
+            </select>
+        </div>
+        <hr>
+
+        <div class="question">
+            <span>٥)  ص - ٤ =  </span>
+            <select name="q5">
+                <option value="" disabled selected></option>
                 <option value="٤">٤</option>
                 <option value="٥">٥</option>
+                <option value="٩">٩</option>
             </select>
         </div>
+        <hr>
 
         <div class="question">
-            <span>٥٦٠٠ ÷ ٧٠</span>
-            <select name="q4">
-                <option value="" disabled selected></option> <!-- First empty option -->
-                <option value="٨٠">٨٠</option>
-                <option value="٨٥">٨٥</option>
-                <option value="٩٠">٩٠</option>
+            <span>٦) ١٣ - (س+١) ‏ =   </span>
+            <select name="q6">
+                <option value="" disabled selected></option>
+                <option value="١٠">١٠</option>
+                <option value="١٢">١٢</option>
+                <option value="١٥">١٥</option>
             </select>
         </div>
+        <hr>
 
         <div class="question">
-            <span>٢١٠٠ ÷ ٣٠</span>
-            <select name="q5">
-                <option value="" disabled selected></option> <!-- First empty option -->
-                <option value="٧٠">٧٠</option>
-                <option value="٧١">٧١</option>
-                <option value="٧٢">٧٢</option>
+            <span>٧) (ص + ٤) - ٥ = </span>
+            <select name="q7">
+                <option value="" disabled selected></option>
+                <option value="٦">٦</option>
+                <option value="٨">٨</option>
+                <option value="١٠">١٠</option>
             </select>
         </div>
+        <hr>
     </div>
 
-    <!-- Submit Button -->
     <button class="submit-btn" type="button" onclick="calculateScore()">إرسال الإجابات</button>
 
-    <!-- Feedback Message -->
     <div id="feedback" style="margin-top: 20px;"></div>
 
     <div class="footer">
@@ -83,36 +244,11 @@
     </div>
 </div>
 
-<script>
-    function calculateScore() {
-        const correctAnswers = {
-            q1: '١٠٠',
-            q2: '٤٠',
-            q3: '٥',
-            q4: '٨٠',
-            q5: '٧٠'
-        };
-        let score = 0;
-        document.querySelectorAll('.question select').forEach(function(select) {
-            const questionName = select.getAttribute('name');
-            if (select.value === correctAnswers[questionName]) {
-                score++;
-            }
-        });
-
-        const feedbackDiv = document.getElementById('feedback');
-        const clapSound = new Audio('clapping_hand_audio.mp3'); // Load the clapping sound
-
-        if (score === 5) {
-            feedbackDiv.innerHTML = "<h2>تهانينا! لقد أجبتي على جميع الأسئلة بشكل صحيح!</h2>";
-            clapSound.play(); // Play clapping sound if all answers are correct
-        } else if (score >= 3) {
-            feedbackDiv.innerHTML = "<h2> عمل جيد! لقد حصلتي على " + score + " من 5 </h2>";
-        } else {
-            feedbackDiv.innerHTML = "<h2> لقد حصلتي على " + score + " من 5 حاولي مرة أخرى.</h2>";
-        }
-    }
-</script>
+<!-- Success Audio -->
+<audio id="success-audio">
+    <source src="clapping_hand_audio.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
 
 </body>
 </html>
